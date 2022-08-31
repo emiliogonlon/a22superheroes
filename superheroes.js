@@ -502,9 +502,36 @@ const superheroes = [
   },
 ];
 
-alert(
-  "1. Checking if JS file is linked up correctly. \n2. Always open the inspector/console when woorking with the JS \n3. Write your code in the end of the js-file \n4. Don't use alert boxes for UI... \n5. Comment this line out - using /* */"
-);
 console.table(superheroes);
 
 /* write your code here */
+
+// const impTemplate = document.querySelector("template").content
+
+// const theClone = impTemplate.cloneNode(true)
+
+// theClone.querySelector("h2").textContent = superheroes.alias
+
+// const parentElement = document.querySelector("body")
+
+// parentElement.appendChild(theClone)
+
+superheroes.forEach(displayThem)
+
+function displayThem(superheroes) {
+  const impTemplate = document.querySelector("template").content
+  const theClone = impTemplate.cloneNode(true)
+  theClone.querySelector("h2").textContent = superheroes.alias
+  theClone.querySelector("#attAbilities").textContent = `Abilities: ${superheroes.abilities}`
+  theClone.querySelector("#attEnemies").textContent = `Enemies: ${superheroes.enemies}`
+  theClone.querySelector("#attWeakness").textContent = `Weakness: ${superheroes.weakness}`
+  theClone.querySelector("#attColor").textContent = `Primary Color: ${superheroes.primaryColor}`
+  theClone.querySelector("#attCape").textContent = `Wears cape: ${superheroes.hasCape}`
+  theClone.querySelector("#attSpeed").textContent = `Speed: ${superheroes.speed}`
+  theClone.querySelector("#attDay").textContent = superheroes.day
+  theClone.querySelector("#attMonth").textContent = superheroes.month
+  theClone.querySelector("#attYear").textContent = superheroes.year
+  theClone.querySelector("#attImg").innerHTML += `<img src="${superheroes.img}" alt="${superheroes.alias}">`
+  // theClone.querySelector("img").textContent = superheroes.img
+  document.querySelector("body").appendChild(theClone)
+}
